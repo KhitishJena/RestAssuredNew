@@ -24,8 +24,8 @@ public class OAuth {
 
 		ResponsePojo response2 = given().queryParams("access_token", accessToken)
 					.when()
-					.get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").as(ResponsePojo.class);
-					//.then().log().all().extract().asString();
+					.get("https://rahulshettyacademy.com/oauthapi/getCourseDetails")
+					.then().log().all().extract().as(ResponsePojo.class);
 					//System.out.println(response2);
 		
 		System.out.println();
