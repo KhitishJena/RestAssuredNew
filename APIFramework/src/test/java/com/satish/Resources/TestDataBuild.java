@@ -8,12 +8,12 @@ import com.satish.PlacePojo.PlaceInput;
 
 public class TestDataBuild {
 
-	public PlaceInput AddPlacePayload() {
+	public PlaceInput AddPlacePayload(String name, String language, String address) {
 		PlaceInput pi = new PlaceInput();
 		pi.setAccuracy(30);
-		pi.setAddress("AE 302");
-		pi.setLanguage("Hindi");
-		pi.setName("Satish");
+		pi.setAddress(name);
+		pi.setLanguage(language);
+		pi.setName(address);
 		pi.setPhone_number("1234567890");
 		pi.setWebsite("www.satish.com");
 

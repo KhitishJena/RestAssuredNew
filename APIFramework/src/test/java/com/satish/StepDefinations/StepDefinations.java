@@ -3,6 +3,7 @@ package com.satish.StepDefinations;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +29,10 @@ public class StepDefinations extends Utils {
 	JsonPath jp ;
 	TestDataBuild testData = new TestDataBuild();
 	
-	@Given("Add Place Payload")
-	public void add_place_payload() {
+	@Given("Add Place Payload with {string} {string} {string}")
+	public void add_place_payload_with(String name, String language, String address) throws IOException {
 
-		req_Body=  given().log().all().spec(requestSpecification()).body(testData.AddPlacePayload());
+		req_Body=  given().log().all().spec(requestSpecification()).body(testData.AddPlacePayload(name,language,address));
 	}
 	
 	@When("user call {string} with post http request")
