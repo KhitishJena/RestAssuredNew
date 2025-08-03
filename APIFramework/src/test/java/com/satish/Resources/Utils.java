@@ -10,6 +10,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class Utils {
@@ -39,4 +41,13 @@ public class Utils {
     	  return value;
       }
 
+      public String getJsonPathValue(Response response, String key) {
+    	  
+    	  String appPlaceResponseString = response.asString();
+  		  JsonPath js = new JsonPath(appPlaceResponseString);
+		  String value = js.get(key).toString();
+		  System.out.println("Value for the key " + key + " is: " + value);
+		  return value;
+		  
+	  }
 }

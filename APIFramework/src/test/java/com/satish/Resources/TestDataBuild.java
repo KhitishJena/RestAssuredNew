@@ -11,9 +11,9 @@ public class TestDataBuild {
 	public PlaceInput AddPlacePayload(String name, String language, String address) {
 		PlaceInput pi = new PlaceInput();
 		pi.setAccuracy(30);
-		pi.setAddress(name);
+		pi.setAddress(address);
 		pi.setLanguage(language);
-		pi.setName(address);
+		pi.setName(name);
 		pi.setPhone_number("1234567890");
 		pi.setWebsite("www.satish.com");
 
