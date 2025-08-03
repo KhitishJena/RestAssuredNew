@@ -28,7 +28,7 @@ Body:
     "language": "Odia"
 }
 HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:15 GMT
+Date: Sun, 03 Aug 2025 16:09:05 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -41,17 +41,17 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "d0247ec789a1fafa95fe1f9ce38cd362",
+    "place_id": "a160b2eee0175179696d1da3b12a8cd9",
     "scope": "APP",
-    "reference": "6e2846f6bc275388856bae333730e8446e2846f6bc275388856bae333730e844",
-    "id": "6e2846f6bc275388856bae333730e844"
+    "reference": "5e6ee0e6f88adbb4ee56bef703004bbb5e6ee0e6f88adbb4ee56bef703004bbb",
+    "id": "5e6ee0e6f88adbb4ee56bef703004bbb"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=d0247ec789a1fafa95fe1f9ce38cd362
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=a160b2eee0175179696d1da3b12a8cd9
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
-				place_id=d0247ec789a1fafa95fe1f9ce38cd362
+				place_id=a160b2eee0175179696d1da3b12a8cd9
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
@@ -60,7 +60,7 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:17 GMT
+Date: Sun, 03 Aug 2025 16:09:07 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -84,8 +84,8 @@ Content-Type: application/json;charset=UTF-8
     "website": "www.satish.com",
     "language": "Odia"
 }
-Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Request method:	DELETE
+Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -97,162 +97,20 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "location": {
-        "lat": 45.4564,
-        "lng": -67.12356
-    },
-    "accuracy": 30,
-    "name": "Little",
-    "phone_number": "1234567890",
-    "address": "Banglore",
-    "types": [
-        "paper-Plate",
-        "oil",
-        "grocery"
-    ],
-    "website": "www.satish.com",
-    "language": "Sanskrit"
+    "place_id": "a160b2eee0175179696d1da3b12a8cd9"
 }
 HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:18 GMT
+Date: Sun, 03 Aug 2025 16:09:08 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
 Access-Control-Max-Age: 3600
 Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 194
+Content-Length: 15
 Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Content-Type: application/json;charset=UTF-8
 
 {
-    "status": "OK",
-    "place_id": "5f0982494cbe4d1f477aca8a4dddad43",
-    "scope": "APP",
-    "reference": "f9dcb18986801bb05dfbf099e44af32af9dcb18986801bb05dfbf099e44af32a",
-    "id": "f9dcb18986801bb05dfbf099e44af32a"
-}
-Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=5f0982494cbe4d1f477aca8a4dddad43
-Proxy:			<none>
-Request params:	<none>
-Query params:	key=qaclick123
-				place_id=5f0982494cbe4d1f477aca8a4dddad43
-Form params:	<none>
-Path params:	<none>
-Headers:		Accept=*/*
-				Content-Type=application/json
-Cookies:		<none>
-Multiparts:		<none>
-Body:			<none>
-HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:19 GMT
-Server: Apache/2.4.52 (Ubuntu)
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: POST
-Access-Control-Max-Age: 3600
-Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 223
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: application/json;charset=UTF-8
-
-{
-    "location": {
-        "latitude": "45.4564",
-        "longitude": "-67.12356"
-    },
-    "accuracy": "30",
-    "name": "Little",
-    "phone_number": "1234567890",
-    "address": "Banglore",
-    "types": "paper-Plate,oil,grocery",
-    "website": "www.satish.com",
-    "language": "Sanskrit"
-}
-Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
-Proxy:			<none>
-Request params:	<none>
-Query params:	key=qaclick123
-Form params:	<none>
-Path params:	<none>
-Headers:		Accept=*/*
-				Content-Type=application/json
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "location": {
-        "lat": 45.4564,
-        "lng": -67.12356
-    },
-    "accuracy": 30,
-    "name": "Linu",
-    "phone_number": "1234567890",
-    "address": "Kolkata",
-    "types": [
-        "paper-Plate",
-        "oil",
-        "grocery"
-    ],
-    "website": "www.satish.com",
-    "language": "Kannada"
-}
-HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:21 GMT
-Server: Apache/2.4.52 (Ubuntu)
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: POST
-Access-Control-Max-Age: 3600
-Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 194
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: application/json;charset=UTF-8
-
-{
-    "status": "OK",
-    "place_id": "2e54ab008138829291346836283927e3",
-    "scope": "APP",
-    "reference": "bb8be33048e6055e1577f578e717e99dbb8be33048e6055e1577f578e717e99d",
-    "id": "bb8be33048e6055e1577f578e717e99d"
-}
-Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=2e54ab008138829291346836283927e3
-Proxy:			<none>
-Request params:	<none>
-Query params:	key=qaclick123
-				place_id=2e54ab008138829291346836283927e3
-Form params:	<none>
-Path params:	<none>
-Headers:		Accept=*/*
-				Content-Type=application/json
-Cookies:		<none>
-Multiparts:		<none>
-Body:			<none>
-HTTP/1.1 200 OK
-Date: Sun, 03 Aug 2025 11:12:21 GMT
-Server: Apache/2.4.52 (Ubuntu)
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: POST
-Access-Control-Max-Age: 3600
-Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 219
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: application/json;charset=UTF-8
-
-{
-    "location": {
-        "latitude": "45.4564",
-        "longitude": "-67.12356"
-    },
-    "accuracy": "30",
-    "name": "Linu",
-    "phone_number": "1234567890",
-    "address": "Kolkata",
-    "types": "paper-Plate,oil,grocery",
-    "website": "www.satish.com",
-    "language": "Kannada"
+    "status": "OK"
 }
