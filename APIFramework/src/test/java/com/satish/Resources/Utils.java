@@ -14,10 +14,11 @@ import io.restassured.specification.RequestSpecification;
 
 public class Utils {
 	
-	RequestSpecification req;
+	public static RequestSpecification req;
 
 	public RequestSpecification requestSpecification() throws IOException {
 		
+		if (req == null) {
   		PrintStream stream = new PrintStream(new FileOutputStream("logging.txt"));
 		req = new RequestSpecBuilder().setBaseUri(getGlobalValues("baseUrl"))
 				.addFilter(RequestLoggingFilter.logRequestTo(stream))
@@ -25,6 +26,9 @@ public class Utils {
 				.addQueryParam("key", "qaclick123")
 				.setContentType(ContentType.JSON).build();  
 		return req;
+		} else {
+			return req;
+		}
 	}
 	
       public static String getGlobalValues(String key) throws IOException {

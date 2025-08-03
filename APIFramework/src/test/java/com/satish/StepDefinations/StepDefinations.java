@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.satish.PlacePojo.Location;
 import com.satish.PlacePojo.PlaceInput;
+import com.satish.Resources.APIResources;
 import com.satish.Resources.TestDataBuild;
 import com.satish.Resources.Utils;
 
@@ -35,14 +36,39 @@ public class StepDefinations extends Utils {
 		req_Body=  given().log().all().spec(requestSpecification()).body(testData.AddPlacePayload(name,language,address));
 	}
 	
-	@When("user call {string} with post http request")
-	public void user_call_with_post_http_request(String string) {
+	@When("user call {string} with {string} http request")
+	public void user_call_with_post_http_request(String resource, String httpMethod) throws IOException {
 		res = new ResponseSpecBuilder().expectStatusCode(200).build();
+		
+		// This is to set the base URI for the request based on the API being called
+		
+		APIResources resourceAPI = APIResources.valueOf(resource);
 
-		addPlaceresponse = req_Body
-				.when().post("/maps/api/place/add/json")
-				.then().log().all().spec(res)
-				.extract().response();
+		/*
+		if (string.equalsIgnoreCase("AddPlaceAPI")) {
+			req_Body.spec(new RequestSpecBuilder().setBaseUri(Utils.getGlobalValues("baseUrl")).build());
+		} else if (string.equalsIgnoreCase("GetPlaceAPI")) {
+			req_Body.spec(new RequestSpecBuilder().setBaseUri(Utils.getGlobalValues("baseUrl")).build());
+		} else if (string.equalsIgnoreCase("DeletePlaceAPI")) {
+			req_Body.spec(new RequestSpecBuilder().setBaseUri(Utils.getGlobalValues("baseUrl")).build());
+		} else if (string.equalsIgnoreCase("UpdatePlaceAPI")) {
+			req_Body.spec(new RequestSpecBuilder().setBaseUri(Utils.getGlobalValues("baseUrl")).build());
+		}
+		*/
+		if(httpMethod.equalsIgnoreCase("POST")) {
+			addPlaceresponse = req_Body
+					.when().post(resourceAPI.getResource());
+		} else if (httpMethod.equalsIgnoreCase("GET")) {
+			addPlaceresponse = req_Body
+					.when().get(resourceAPI.getResource());
+		} else if (httpMethod.equalsIgnoreCase("DELETE")) {
+			addPlaceresponse = req_Body
+					.when().delete(resourceAPI.getResource());
+		} else if (httpMethod.equalsIgnoreCase("PUT")) {
+			addPlaceresponse = req_Body
+					.when().put(resourceAPI.getResource());
+		}
+		
 	}
 	
 	@Then("the API call got success with status code {int}")
