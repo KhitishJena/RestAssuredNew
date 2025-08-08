@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="18.276" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-08-04T17:48:21.521482300Z">
-<testcase classname="Validating Place API's" name="Verify if place is being Successfully added using AddPlaceAPI - #1.1" time="14.622">
+<testsuite name="Cucumber" time="11.361" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-08-08T18:49:39.420866700Z">
+<testcase classname="Validating Place API's" name="Verify if place is being Successfully added using AddPlaceAPI - #1.1" time="8.305">
 <system-out><![CDATA[
 Given Add Place Payload with "Lulu" "Odia" "Barang".........................passed
 When user call "ADDPLACEAPI" with "post" http request.......................passed
@@ -10,7 +10,7 @@ And "scope" in response body is "APP".......................................pass
 And verify place_id created maps to "Lulu" using "GETPLACEAPI"..............passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validating Place API's" name="Verify if Delete Place functionality is working" time="2.671">
+<testcase classname="Validating Place API's" name="Verify if Delete Place functionality is working" time="2.726">
 <system-out><![CDATA[
 Given Delete Place Payload..................................................passed
 When user call "DELETEPLACEAPI" with "delete" http request..................passed

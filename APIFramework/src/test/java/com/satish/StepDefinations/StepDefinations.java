@@ -1,7 +1,8 @@
 package com.satish.StepDefinations; 
 
 import static io.restassured.RestAssured.given;
-import static org.testng.Assert.assertEquals;
+//import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import com.satish.Resources.APIResources;
@@ -67,9 +68,10 @@ public class StepDefinations extends Utils {
 	}
 	
 	@Then("the API call got success with status code {int}")
-	public void the_api_call_got_success_with_status_code(Integer statusCode) {
+	public void the_api_call_got_success_with_status_code(int statusCode) {
 	    System.out.println("satish");
-		assertEquals(response.getStatusCode(), statusCode);
+	    int actualStatusCode = response.getStatusCode();
+		assertEquals(actualStatusCode, statusCode);
 	}
 	
 	@Then("{string} in response body is {string}")
