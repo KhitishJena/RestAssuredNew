@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="9.561" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-09T04:18:12.046454500Z">
-<testcase classname="Validating Place API's" name="Verify if place is being Successfully added using AddPlaceAPI - #1.1" time="8.969">
+<testsuite name="Cucumber" time="11.94" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-09T04:41:54.729195400Z">
+<testcase classname="Validating Place API's" name="Verify if place is being Successfully added using AddPlaceAPI - #1.1" time="11.603">
 <system-out><![CDATA[
 Given Add Place Payload with "Lulu" "Odia" "Barang".........................passed
 When user call "ADDPLACEAPI" with "post" http request.......................passed
