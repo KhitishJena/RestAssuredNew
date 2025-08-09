@@ -25,6 +25,12 @@
                  <include>**/TestRunner.java</include>                 
                 </includes>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <properties>
+            <property>
+                <name>cucumber.options</name>
+                <value>--plugin json:${project.build.directory}/jsonReports/cucumber.json</value>
+            </property>
+        </properties>
                 </configuration>
             </plugin>
             <plugin>
@@ -43,7 +49,7 @@
                             <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
                             <skip>false</skip>
                             <!-- output directory for the generated report -->
-                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
                             <!-- optional, defaults to outputDirectory if not specified -->
                             <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
                             <jsonFiles>

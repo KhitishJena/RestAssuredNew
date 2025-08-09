@@ -2,7 +2,8 @@ package com.satish.StepDefinations;
 
 import static io.restassured.RestAssured.given;
 //import static org.testng.Assert.assertEquals;
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import com.satish.Resources.APIResources;
