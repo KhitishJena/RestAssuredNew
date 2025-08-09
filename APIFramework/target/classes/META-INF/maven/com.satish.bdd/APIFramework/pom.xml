@@ -25,12 +25,6 @@
                  <include>**/TestRunner.java</include>                 
                 </includes>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <properties>
-            <property>
-                <name>cucumber.options</name>
-                <value>--plugin json:${project.build.directory}/jsonReports/cucumber.json</value>
-            </property>
-        </properties>
                 </configuration>
             </plugin>
             <plugin>

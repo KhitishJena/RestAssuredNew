@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/java/com/satish/Features",
 				glue = {"com.satish.StepDefinations"},
-				tags = "@End2End",
+				tags = "@AddPlace",
 				dryRun = false,
 				plugin = {"pretty", "html:target/cucumber-reports.html",
 						  "json:target/jsonReports/cucumber.json",
