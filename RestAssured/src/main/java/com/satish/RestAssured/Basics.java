@@ -23,12 +23,14 @@ public class Basics {
 		
 		
 		System.out.println("************");
+
 		System.out.println(postResponse);
-		JsonPath parsedResponseJson = new JsonPath(postResponse);   //This parses the output to the JSON
+		JsonPath parsedResponseJson = new JsonPath(postResponse);   //This parses the raw output response to the JSON
 		String placeId = parsedResponseJson.getString("place_id");
 		System.out.println("This is placeId: "+placeId);
 
 		System.out.println("@@@@@@@@@@@@");
+
 		//add place-> update place --> get place to validate if the update is done properly or not
 		
 		String newAddress = "70 Summer walk, USA";

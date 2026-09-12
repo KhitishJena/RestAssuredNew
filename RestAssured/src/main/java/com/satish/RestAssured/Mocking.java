@@ -28,6 +28,9 @@ public class Mocking {
 		System.out.println();
 
 		int totalAmount = 0;
+
+		//****************printing all courses and their details****************
+
 		for (int i = 0; i < courses_count; i++) {
 			String courseName = js.getString("courses[" + i + "].title");
 			int price = js.getInt("courses[" + i + "].price");
@@ -41,12 +44,15 @@ public class Mocking {
 
 			totalAmount = totalAmount + (price * copies);
 		}
+
+		//****************printing a particular course details and its details****************
+
 		for (int i = 0; i < courses_count; i++) {
 			String courseName = js.getString("courses[" + i + "].title");
 			int price = js.getInt("courses[" + i + "].price");
 			int copies = js.getInt("courses[" + i + "].copies");
 
-			if (courseName.equalsIgnoreCase("Cypress")) {
+			if (courseName.equalsIgnoreCase("CyPress")) {
 				System.out.println("#######" + courseName + "#######");
 				System.out.println("Each course price is: " + price);
 				System.out.println("The number of copies sold: " + copies);
@@ -57,7 +63,7 @@ public class Mocking {
 
 		System.out.println();
 		System.out.println("The final calculated total amount is: $ " + totalAmount);
-		Assert.assertEquals(amount, totalAmount);
+		Assert.assertEquals(totalAmount, amount);
 
 	}
 
