@@ -15,7 +15,7 @@ public class Basics {
 	public static void main(String[] args) {
 		
 		RestAssured.baseURI="https://rahulshettyacademy.com";
-		String response = given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json")
+		String postResponse = given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json")
 		.body(payload.addPlace())
 		.when().post("maps/api/place/add/json")
 		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP"))
@@ -23,11 +23,12 @@ public class Basics {
 		
 		
 		System.out.println("************");
-		System.out.println(response);
-		JsonPath responseJson = new JsonPath(response);
-		String placeId = responseJson.getString("place_id");
-		System.out.println(placeId);
-		
+		System.out.println(postResponse);
+		JsonPath parsedResponseJson = new JsonPath(postResponse);   //This parses the output to the JSON
+		String placeId = parsedResponseJson.getString("place_id");
+		System.out.println("This is placeId: "+placeId);
+
+		System.out.println("@@@@@@@@@@@@");
 		//add place-> update place --> get place to validate if the update is done properly or not
 		
 		String newAddress = "70 Summer walk, USA";
@@ -41,7 +42,8 @@ public class Basics {
 				+ "")
 		.when().put("/maps/api/place/update/json")
 		.then().log().all().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
-		
+
+		System.out.println("^^^^^^^^^^^^");
 		
 		String getResponse = given().log().all().queryParam("key", "qaclick123").queryParam("place_id", placeId)
 		.when().get("maps/api/place/get/json")
