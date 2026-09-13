@@ -11,8 +11,14 @@ import org.testng.annotations.Test;
 import com.satish.files.Library;
 
 import io.restassured.path.json.JsonPath;
+import org.testng.annotations.TestInstance;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DynamicJson {
+
+	List<String> bookIds = new ArrayList<>();
 
 	@Test(dataProvider = "BookData")
 	public void AddBook(String isbn, String aisle) {
@@ -29,14 +35,19 @@ public class DynamicJson {
 		JsonPath js = new JsonPath(addBookResponse);
 		String message = js.getString("Msg");
 		String book_id = js.getString("ID");
-		Assert.assertEquals("successfully added", message);
+		Assert.assertEquals(message, "successfully added");
 		Assert.assertEquals(book_id, isbn + aisle);
 		// return book_id;
 
+		bookIds.add(book_id);
+		System.out.println("*********************************************");
+		System.out.println("The IDs of books added are : "+bookIds);
 	}
 
-	@Test(dataProvider = "BookData")
+	//@Test(dataProvider = "BookData")
 	public void DeleteBook(String isbn, String aisle) {
+
+		System.out.println("*********************************************");
 
 		String book_id = isbn + aisle;
 		RestAssured.baseURI = "http://216.10.245.166";
@@ -46,6 +57,21 @@ public class DynamicJson {
 		.when().post("/Library/DeleteBook.php")
 		.then().assertThat().statusCode(200).body("msg", equalTo("book is successfully deleted"));
 
+	}
+
+	@Test
+	public void DeleteBookList() {
+
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
+		RestAssured.baseURI = "http://216.10.245.166";
+
+		for(String singleBookId:bookIds) {
+			given().log().all().header("Content-Type", "application/json")
+					.body(Library.DeleteBookPayload(singleBookId))
+					.when().post("/Library/DeleteBook.php")
+					.then().log().all().assertThat().statusCode(200).body("msg", equalTo("book is successfully deleted"));
+		}
 	}
 
 	@DataProvider(name = "BookData")
