@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class OptResDeserialization {
+public class OptResDeserializationPOJO {
 
     private String status;
     private String place_id;

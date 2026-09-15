@@ -16,7 +16,7 @@ public class SpecBuilderTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		PlaceInput pi = new PlaceInput();
+		PlaceInputPOJO pi = new PlaceInputPOJO();
 		pi.setAccuracy(30);
 		pi.setAddress("AE 302");
 		pi.setLanguage("Hindi");
@@ -30,7 +30,7 @@ public class SpecBuilderTest {
 		myTypesList.add("grocery");
 		pi.setTypes(myTypesList);
 
-		Location loc = new Location();
+		LocationPOJO loc = new LocationPOJO();
 		loc.setLat(45.4564);
 		loc.setLng(-67.12356);
 		pi.setLocation(loc);

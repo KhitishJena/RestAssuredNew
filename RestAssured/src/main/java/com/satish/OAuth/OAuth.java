@@ -52,7 +52,11 @@ public class OAuth {
 		System.out.println(response2.getCourses().getWebAutomation().get(1).getPrice());
 		System.out.println(response2.getCourses().getWebAutomation().get(1).getCourseTitle());
 		System.out.println();
-		
+
+		System.out.println(response2.getCourses().getApi().get(0).getPrice());
+		System.out.println(response2.getCourses().getApi().get(0).getCourseTitle());
+		System.out.println();
+
 		List<WebAutomation> courses = response2.getCourses().getWebAutomation();
 		
 		System.out.println("These are the courses present in the WebAutomation:-");

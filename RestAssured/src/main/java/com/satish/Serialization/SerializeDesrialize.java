@@ -7,13 +7,13 @@ public class SerializeDesrialize {
         public static void main(String[] args) {
             try {
                 // Create Address object
-                Address addr = new Address();
+                AddressPOJO addr = new AddressPOJO();
                 addr.setCity("Bhubaneswar");
                 addr.setState("Odisha");
                 addr.setCountry("India");
 
                 // Create Employee object
-                Employee emp = new Employee();
+                EmployeePOJO emp = new EmployeePOJO();
                 emp.setId(101);
                 emp.setName("Satish");
                 emp.setRole("QA Automation Engineer");
@@ -35,7 +35,7 @@ public class SerializeDesrialize {
                 System.out.println("**************************");
 
                 // De-Serialize POJO to JSON string
-                Employee empOutput = mapper.readValue(jsonString, Employee.class);
+                EmployeePOJO empOutput = mapper.readValue(jsonString, EmployeePOJO.class);
                 System.out.println(empOutput.getId());
                 System.out.println(empOutput.getName());
                 System.out.println(empOutput.getAddress().getState());

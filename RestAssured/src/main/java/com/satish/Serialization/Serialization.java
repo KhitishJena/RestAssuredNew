@@ -16,7 +16,7 @@ public class Serialization {
 	public static void main(String[] args) throws JsonProcessingException {
 		// TODO Auto-generated method stub
 		
-		PlaceInput pi = new PlaceInput();
+		PlaceInputPOJO pi = new PlaceInputPOJO();
 		pi.setAccuracy(30);
 		pi.setAddress("AE 302");
 		pi.setLanguage("Hindi");
@@ -30,7 +30,7 @@ public class Serialization {
 		myTypesList.add("grocery");
 		pi.setTypes(myTypesList);
 		
-		Location loc = new Location();
+		LocationPOJO loc = new LocationPOJO();
 		loc.setLat(45.4564);
 		loc.setLng(-67.12356);
 		pi.setLocation(loc);
@@ -57,7 +57,7 @@ public class Serialization {
 		System.out.println("**************************");
 
 		ObjectMapper mapper = new ObjectMapper();
-		OptResDeserialization ord = mapper.readValue(response, OptResDeserialization.class);    //// Deserialize JSON into POJO
+		OptResDeserializationPOJO ord = mapper.readValue(response, OptResDeserializationPOJO.class);    //// Deserialize JSON into POJO
 		System.out.println(ord.getPlace_id());
 		System.out.println(ord.getStatus());
 

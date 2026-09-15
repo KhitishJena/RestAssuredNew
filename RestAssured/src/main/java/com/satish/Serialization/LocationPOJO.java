@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class Location {
+public class LocationPOJO {
 	
 	private double lat;
 	private double lng;

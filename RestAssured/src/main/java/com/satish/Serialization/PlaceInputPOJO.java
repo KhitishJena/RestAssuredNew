@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class PlaceInput {
+public class PlaceInputPOJO {
 	
-	private Location location;
+	private LocationPOJO location;
 	private int accuracy;
 	private String name;
 	private String phone_number;
