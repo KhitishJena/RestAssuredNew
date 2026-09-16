@@ -52,10 +52,10 @@ public class EcommerceAPITest {
 		String filePath = file.getAbsolutePath();
 		System.out.println(filePath);
 		
-		RequestSpecification addProductBaseReq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+		RequestSpecification commonRequestSpec = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
 												.addHeader("Authorization", token).build();
 		
-		RequestSpecification reqAddProduct= given().log().all().spec(addProductBaseReq)
+		RequestSpecification reqAddProduct= given().log().all().spec(commonRequestSpec)
 											.formParams("productName", "MyntraProduct")
 											.formParam("productAddedBy", userId)
 											.param("productCategory", "fashion")
@@ -109,9 +109,7 @@ public class EcommerceAPITest {
 		System.out.println("G E T - O R D E R");
 		System.out.println("*****************************");
 
-		RequestSpecification getOrderReq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-										.addHeader("Authorization", token).build();
-		RequestSpecification getOrder = given().spec(getOrderReq).log().all().queryParam("id",createOrderResponse.getOrders().get(0));
+		RequestSpecification getOrder = given().spec(commonRequestSpec).log().all().queryParam("id",createOrderResponse.getOrders().get(0));
 
 		GetOrderResponsePojo getOrderResponse = getOrder.when().get("api/ecom/order/get-orders-details")
 											.then().log().all().statusCode(200).extract().as(GetOrderResponsePojo.class);
@@ -132,14 +130,11 @@ public class EcommerceAPITest {
 		System.out.println("*****************************");
 		System.out.println("D E L E T E - P R O D U C T");
 		System.out.println("*****************************");
-				
-		RequestSpecification deleteProductBasereq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-				.addHeader("Authorization", token).build();
-		
-		RequestSpecification deleteProductReq   = given().log().all().spec(deleteProductBasereq).pathParam("productId", productId);
+
+		RequestSpecification deleteProductReq   = given().log().all().spec(commonRequestSpec).pathParam("productId", productId);
 		
 		DeletePojo deleteResponse = deleteProductReq.when().delete("/api/ecom/product/delete-product/{productId}")
-		.then().log().all().statusCode(200).extract().as(DeletePojo.class);
+								.then().log().all().statusCode(200).extract().as(DeletePojo.class);
 		
 		Assert.assertEquals(deleteResponse.getMessage(), "Product Deleted Successfully");
 
