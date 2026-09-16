@@ -8,6 +8,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
@@ -35,21 +36,34 @@ public class SpecBuilderTest {
 		loc.setLng(-67.12356);
 		pi.setLocation(loc);
 
+		/*
+		// ✅ Using RequestSpecBuilder
+		// RequestSpecBuilder is a builder class that allows you to configure
+			a RequestSpecification step by step (base URI, query params, headers, etc.).
+		// IMPORTANT: You must call .build() to convert the builder into a usable RequestSpecification object.
+		// Without .build(), you only have the builder, not the actual specification object.
+		*/
 		RequestSpecification req = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
 									.addQueryParam("key", "qaclick123")
 									.setContentType(ContentType.JSON).build();
-
+		/*
+		// ✅ Using given()
+		// 'given()' directly returns a RequestSpecification object.
+		// Since it already provides a usable RequestSpecification object, you do NOT need to call .build().
+		// Here we enrich the specification by attaching logging and request body.
+		*/
 		RequestSpecification req_Body = given().log().all().spec(req).body(pi);
 
 		ResponseSpecification res = new ResponseSpecBuilder().expectStatusCode(200).build();
 
 		//Add
-		String response = req_Body
+		Response response = req_Body
 				.when().post("/maps/api/place/add/json")
 				.then().log().all().spec(res)
-				.extract().response().asString();
+				.extract().response();
 
-		JsonPath jp = new JsonPath(response);
+		String responseString = response.asString();
+		JsonPath jp = new JsonPath(responseString);
 		String placeID = jp.getString("place_id");
 
 		System.out.println(placeID);

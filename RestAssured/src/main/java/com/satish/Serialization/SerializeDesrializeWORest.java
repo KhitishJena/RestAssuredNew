@@ -2,10 +2,14 @@ package com.satish.Serialization;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 
-public class SerializeDesrialize {
+public class SerializeDesrializeWORest {
 
         public static void main(String[] args) {
             try {
+                System.out.println("**************************");
+                System.out.println("S E R I A L I Z E");
+                System.out.println("**************************");
+
                 // Create Address object
                 AddressPOJO addr = new AddressPOJO();
                 addr.setCity("Bhubaneswar");
