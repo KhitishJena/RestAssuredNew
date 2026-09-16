@@ -11,13 +11,18 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 
 public class EcommerceAPITest {
 
 	public static void main(String[] args) {
-		
-		//Login
+
+		///L O G I N
+		System.out.println("*****************************");
+		System.out.println("L O G I N");
+		System.out.println("*****************************");
+
 		LoginPojo login = new LoginPojo();
 		login.setUserEmail("satish@xyz.com");
 		login.setUserPassword("!Lulu123");
@@ -38,9 +43,12 @@ public class EcommerceAPITest {
 		System.out.println(userId);
 		
 
-		//Add Product
+		///A D D - P R O D U C T
+		System.out.println("*****************************");
+		System.out.println("A D D - P R O D U C T");
+		System.out.println("*****************************");
 		
-		File file =new File("resources\\money_purse.jpg");
+		File file =new File("RestAssured\\resources\\money_purse.jpg");
 		String filePath = file.getAbsolutePath();
 		System.out.println(filePath);
 		
@@ -63,10 +71,12 @@ public class EcommerceAPITest {
 		String productId = addProductResponse.getProductId();
 		
 		System.out.println("The Product id is: "+productId);
+
 		
-		
-		
-		//Create Order
+		///C R E A T E - O R D E R
+		System.out.println("*****************************");
+		System.out.println("C R E A T E - O R D E R");
+		System.out.println("*****************************");
 		
 		CreateOrderSubPojo createOrderSub = new CreateOrderSubPojo();
 		createOrderSub.setCountry("British Indian Ocean Territory");
@@ -93,9 +103,35 @@ public class EcommerceAPITest {
 				Assert.assertTrue(true);
 			}
 		}
-		
-	
-		//Delete Product
+
+		///G E T - O R D E R
+		System.out.println("*****************************");
+		System.out.println("G E T - O R D E R");
+		System.out.println("*****************************");
+
+		RequestSpecification getOrderReq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+										.addHeader("Authorization", token).build();
+		RequestSpecification getOrder = given().spec(getOrderReq).log().all().queryParam("id",createOrderResponse.getOrders().get(0));
+
+		GetOrderResponsePojo getOrderResponse = getOrder.when().get("api/ecom/order/get-orders-details")
+											.then().log().all().statusCode(200).extract().as(GetOrderResponsePojo.class);
+		String actual_OrderId = getOrderResponse.getData().get_id();
+		Assert.assertEquals(actual_OrderId, createOrderResponse.getOrders().get(0), "The order Id didnot match ");
+
+		///D E L E T E - O R D E R
+		System.out.println("*****************************");
+		System.out.println("D E L E T E - O R D E R");
+		System.out.println("*****************************");
+
+		DeleteOrderPojo deleteOrderPojo = getOrder.when().delete("api/ecom/order/delete-order/"+actual_OrderId)
+										.then().log().all().statusCode(200).extract().as(DeleteOrderPojo.class);
+		Assert.assertEquals(deleteOrderPojo.getMessage(),"Orders Deleted Successfully", "The delete message is not matching");
+
+
+		///D E L E T E - P R O D U C T
+		System.out.println("*****************************");
+		System.out.println("D E L E T E - P R O D U C T");
+		System.out.println("*****************************");
 				
 		RequestSpecification deleteProductBasereq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
 				.addHeader("Authorization", token).build();
@@ -106,8 +142,6 @@ public class EcommerceAPITest {
 		.then().log().all().statusCode(200).extract().as(DeletePojo.class);
 		
 		Assert.assertEquals(deleteResponse.getMessage(), "Product Deleted Successfully");
-		
-		
-		
+
 	}
 }
