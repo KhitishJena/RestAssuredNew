@@ -35,8 +35,14 @@ public class Utils {
 	
       public static String getGlobalValues(String key) throws IOException {
      	  Properties prop = new Properties();
-		   ///change the global properties path as per your local repo
-     	  FileInputStream fis = new FileInputStream("C:\\Users\\SATISH\\IdeaProjects\\RestAssuredNew\\APIFramework\\src\\test\\java\\com\\satish\\Resources\\global.properties");
+
+          // Dynamically get project root path
+          String projectRoot = System.getProperty("user.dir");
+
+          // Build relative path to global.properties
+          String filePath = projectRoot + "/src/test/java/com/satish/Resources/global.properties";
+
+     	  FileInputStream fis = new FileInputStream(filePath);
     	  prop.load(fis);
     	  String value = prop.getProperty(key);
     	  return value;
