@@ -121,7 +121,8 @@ public class EcommerceAPITest {
 		System.out.println("D E L E T E - O R D E R");
 		System.out.println("*****************************");
 
-		DeleteOrderPojo deleteOrderPojo = getOrder.when().delete("api/ecom/order/delete-order/"+actual_OrderId)
+		RequestSpecification deleteOrderReq = given().spec(commonRequestSpec).log().all().pathParam("orderId",actual_OrderId);
+		DeleteOrderPojo deleteOrderPojo = deleteOrderReq.when().delete("api/ecom/order/delete-order/{orderId}")
 										.then().log().all().statusCode(200).extract().as(DeleteOrderPojo.class);
 		Assert.assertEquals(deleteOrderPojo.getMessage(),"Orders Deleted Successfully", "The delete message is not matching");
 

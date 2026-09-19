@@ -70,14 +70,14 @@ public class StepDefinations extends Utils {
 	
 	@Then("the API call got success with status code {int}")
 	public void the_api_call_got_success_with_status_code(int statusCode) {
-	    System.out.println("satish");
+	    //System.out.println("satish");
 	    int actualStatusCode = response.getStatusCode();
 		assertEquals(actualStatusCode, statusCode);
 	}
 	
 	@Then("{string} in response body is {string}")
 	public void in_response_body_os(String key, String expectedValue) {
-		System.out.println("Khitish");
+		//System.out.println("Khitish");
 		assertEquals(getJsonPathValue(response, key), expectedValue);
 	}
 	

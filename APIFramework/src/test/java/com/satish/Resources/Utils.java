@@ -35,7 +35,8 @@ public class Utils {
 	
       public static String getGlobalValues(String key) throws IOException {
      	  Properties prop = new Properties();
-     	  FileInputStream fis = new FileInputStream("C:\\Users\\K H I T I S H\\git\\repository\\APIFramework\\src\\test\\java\\com\\satish\\Resources\\global.properties");
+		   ///change the global properties path as per your local repo
+     	  FileInputStream fis = new FileInputStream("C:\\Users\\SATISH\\IdeaProjects\\RestAssuredNew\\APIFramework\\src\\test\\java\\com\\satish\\Resources\\global.properties");
     	  prop.load(fis);
     	  String value = prop.getProperty(key);
     	  return value;
