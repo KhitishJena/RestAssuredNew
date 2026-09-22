@@ -27,7 +27,8 @@ public class Hooks {
 	@BeforeAll
 	public static void loggingCleanUp(){
 		String logFile = "logging.txt";
-		try (FileWriter fw = new FileWriter(logFile, false)) {
+		try (FileWriter fw = new FileWriter(logFile, false)) ///if 'true'--> append mode, 'false'-->overwrite mode
+		{
 			// Opening with 'append = false' clears the file
 			fw.write(""); // optional, ensures file is empty
 			System.out.println("Log file cleared successfully.");

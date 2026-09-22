@@ -1,8 +1,7 @@
 package com.satish.StepDefinations; 
 
 import static io.restassured.RestAssured.given;
-//import static org.testng.Assert.assertEquals;
-//import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
@@ -52,6 +51,7 @@ public class StepDefinations extends Utils {
 			req_Body.spec(new RequestSpecBuilder().setBaseUri(Utils.getGlobalValues("baseUrl")).build());
 		}
 		*/
+
 		if(httpMethod.equalsIgnoreCase("POST")) {
 			response = req_Body
 					.when().post(resourceAPI.getResource());
@@ -65,7 +65,7 @@ public class StepDefinations extends Utils {
 			response = req_Body
 					.when().put(resourceAPI.getResource());
 		}
-		
+
 	}
 	
 	@Then("the API call got success with status code {int}")
