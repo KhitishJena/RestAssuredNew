@@ -8,6 +8,8 @@ public class animal {
 	ArrayList<String> wordsList = new ArrayList<String>(Arrays.asList(sentence.split(" ")));
 	
 	public void countWords() {
+		System.out.println(wordsList);
+
 		ArrayList<String> countedWords = new ArrayList<String>();
 		
 		for (String word : wordsList) {
