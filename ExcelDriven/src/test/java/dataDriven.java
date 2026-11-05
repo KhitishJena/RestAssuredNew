@@ -13,7 +13,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class dataDriven {
 
 	public ArrayList<String> getData(String testCaseType) throws IOException {
-		FileInputStream fileStream = new FileInputStream("inputFolder//demoData.xlsx");
+		String projectPath = System.getProperty("user.dir");
+		FileInputStream fileStream = new FileInputStream(projectPath+"/ExcelDriven/inputFolder/demoData.xlsx");
 
 		XSSFWorkbook workbook = new XSSFWorkbook(fileStream);
 		int totalSheets = workbook.getNumberOfSheets();
