@@ -1,4 +1,4 @@
-API is the middle layer which helps in communicating between clienta nd server:
+API is the middle layer which helps in communicating between client and server:
     Communicating between different applications
     Communicating between applications built on different technology.
     Communicating between applications built on different platforms.
